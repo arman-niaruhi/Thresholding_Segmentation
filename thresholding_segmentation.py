@@ -4,7 +4,6 @@ from PIL import Image
 from scipy.ndimage.morphology import binary_opening, binary_closing
 from skimage import measure
 import math
-import math
 
 class KMeans_thresh():
 
@@ -84,7 +83,6 @@ class KMeans_thresh():
 
 
     def combine(self):
-
         # merge the manipulated image and the given background
         manipulatedImg = self.back.copy()
         Img_foreground_after_thresholding = self.fore[25:-20, 25:-20,:]
