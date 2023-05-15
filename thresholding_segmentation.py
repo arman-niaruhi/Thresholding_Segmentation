@@ -6,8 +6,6 @@ from skimage import measure
 import math
 
 class KMeans_thresh():
-
-
     '''
     for initialization we just need some current value wich can be passed 
     between the functions
@@ -18,14 +16,12 @@ class KMeans_thresh():
         self.segmentationMap = None
 
     def apply(self, path1, path2, threshhold = 0.65, channel_num = 0 , closing = 2, opening= 23):
-
         '''
         path1 : the path belongs to the foreground image
         path2 : the path belongs to the Bakground image
         threshold : this should be used in thresholding process of one of the channels
         channel_num : Red or Green ir Blue for image
         closing & opening: size of kernel in closing & opening
-
         '''
         # import image
         img=Image.open(path1)
@@ -49,7 +45,7 @@ class KMeans_thresh():
         segmentationMap = binary_opening(segmentationMap,se)
 
 
-        # Inner functiob to analyze the biggest parts that are involved in a region
+        # Inner function to analyze the biggest parts that are involved in a region
         def getLargestCC(segmentation):
             labels = measure.label(segmentation)
             assert( labels.max() != 0 ) # assume at least 1 CC
